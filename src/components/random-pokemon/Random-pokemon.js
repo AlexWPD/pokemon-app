@@ -2,7 +2,7 @@ import { useState, useEffect  } from 'react'
 import FetchPokemon from '../../fetch/FetchPokemon'
 import Spinner from '../spinner/Spinner'
 import Error from '../error/Error'
-import img from "../../pictures/no-image.webp"
+import noImg from "../../pictures/no-image.webp"
 
 import './random-pokemon.scss'
 
@@ -62,7 +62,7 @@ const Pokemon = ({name, image}) => {
     return (
         <div className='random-pokemon'>
             <div className='random-image'>
-                <img src={image ? image : img} alt='pokemon'></img>
+                <img src={image ? image : noImg} alt='pokemon'></img>
             </div>
             <div className='random-summary'>
                 <h3 className='random-title'>{name}</h3>
