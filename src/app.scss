@@ -1,0 +1,47 @@
+h2, h3 {
+  margin: 0;
+  padding: 0;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+ul,
+li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.wrapper {
+    margin: 0 auto;
+    padding: 0 20px;
+    max-width: 1280px;
+}
+
+.btn {
+  display: flex;
+  align-self: flex-start;
+  padding: 10px 40px;
+  font-size: 18px;
+  line-height: 18px;
+  font-weight: 700;
+  color: #fff;
+  background-color: green;
+  border-radius: 4px;
+  cursor: pointer;
+}
