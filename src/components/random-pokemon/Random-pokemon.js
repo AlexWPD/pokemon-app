@@ -50,8 +50,8 @@ const RandomPokemon = () => {
             {content}
             <div className='random-action'>
                 <h3>Random Pokemon for today!</h3>
-                <p>Do you want to get to know him better?</p>
-                <p>Or choose onother one!</p>
+                <p>Don't like?</p>
+                <p>Choose onother one!</p>
                 <button className='btn' onClick={() => updatePokemon(Math.floor(Math.random() * 1100))} >Try it</button>
             </div>
         </div>
