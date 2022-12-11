@@ -9,8 +9,7 @@ import './random-pokemon.scss'
 
 const RandomPokemon = () => {
 
-    const [image, setImage] = useState(null)
-    const [name, setName] = useState(null)
+    const [pokemon, setPokemon] = useState(null)
 
     const [loading, setLoading] = useState(true)
     const [errorMessage, setErrorMessage] = useState(false)
@@ -30,9 +29,8 @@ const RandomPokemon = () => {
         setLoading(true)
         setErrorMessage(false)
         getSinglePokemon(id)
-        .then(res => {
-            setImage(res.sprites.other.dream_world.front_default)
-            setName(res.name)
+        .then(pokemonData => {
+            setPokemon(pokemonData)
             setLoading(false)
         })
         .catch(onError)
@@ -40,7 +38,7 @@ const RandomPokemon = () => {
 
     const error = errorMessage ? <Error/> : null
     const spinner = loading ? <Spinner/> : null
-    const content = !(loading || errorMessage) ? <Pokemon name={name} image={image}/> : null
+    const content = !(loading || errorMessage) ? <Pokemon pokemon={pokemon} /> : null
 
     return (
         <div className='random'>
@@ -57,7 +55,9 @@ const RandomPokemon = () => {
     )
 }
 
-const Pokemon = ({name, image}) => {
+const Pokemon = ({pokemon}) => {
+
+    const {name, image} = pokemon
     return (
         <div className='random-pokemon'>
             <div className='random-image'>

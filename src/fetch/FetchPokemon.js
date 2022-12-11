@@ -13,6 +13,14 @@ export const getAllPokemons = () => {
     return getData('https://pokeapi.co/api/v2/pokemon/')
 }
 
-export const getSinglePokemon = (id) => {
-    return getData(`https://pokeapi.co/api/v2/pokemon/${id}`)
+export const getSinglePokemon = async (id) => {
+    const res = await getData(`https://pokeapi.co/api/v2/pokemon/${id}`)
+    return transformPokemonData(res)
+}
+
+const transformPokemonData = (pokemonData) => {
+    return {
+        name: pokemonData.name,
+        image: pokemonData.sprites.other.dream_world.front_default
+    }
 }
