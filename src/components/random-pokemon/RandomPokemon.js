@@ -1,18 +1,17 @@
 import { useState, useEffect  } from 'react'
-import FetchPokemon from '../../fetch/FetchPokemon'
 import Spinner from '../spinner/Spinner'
 import Error from '../error/Error'
 import noImg from "../../pictures/no-image.webp"
 
-import './random-pokemon.scss'
+import {getSinglePokemon} from '../../fetch/fetchPokemon'
 
+import './random-pokemon.scss'
 
 const RandomPokemon = () => {
 
-    const {getSinglePokemon} = FetchPokemon()
-
     const [image, setImage] = useState(null)
     const [name, setName] = useState(null)
+
     const [loading, setLoading] = useState(true)
     const [errorMessage, setErrorMessage] = useState(false)
 

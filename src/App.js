@@ -1,5 +1,5 @@
 import Header from './components/header/Header'
-import RandomPokemon from './components/random-pokemon/Random-pokemon'
+import RandomPokemon from './components/random-pokemon/RandomPokemon'
 
 import './app.scss';
 
