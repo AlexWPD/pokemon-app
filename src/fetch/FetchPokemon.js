@@ -1,8 +1,8 @@
 
 
-class FetchPokemon {
+const FetchPokemon = () => {
 
-    getData = async (url) => {
+    const getData = async (url) => {
         let res = await fetch(url)
         if (!res.ok) {
             throw new Error (`Не получилось fetch ${url}, status: ${res.status}`)
@@ -11,13 +11,15 @@ class FetchPokemon {
         return await res.json()
     }
 
-    getAllPokemons = () => {
-        return this.getData('https://pokeapi.co/api/v2/pokemon/')
+    const getAllPokemons = () => {
+        return getData('https://pokeapi.co/api/v2/pokemon/')
     }
 
-    getSinglePokemon = (id) => {
-        return this.getData(`https://pokeapi.co/api/v2/pokemon/${id}`)
+    const getSinglePokemon = (id) => {
+        return getData(`https://pokeapi.co/api/v2/pokemon/${id}`)
     }
+
+    return {getAllPokemons, getSinglePokemon}
 }
 
 export default FetchPokemon

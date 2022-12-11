@@ -9,7 +9,7 @@ import './random-pokemon.scss'
 
 const RandomPokemon = () => {
 
-    const fetchPokemon = new FetchPokemon()
+    const {getSinglePokemon} = FetchPokemon()
 
     const [image, setImage] = useState(null)
     const [name, setName] = useState(null)
@@ -30,7 +30,7 @@ const RandomPokemon = () => {
     const updatePokemon = (id) => {
         setLoading(true)
         setErrorMessage(false)
-        fetchPokemon.getSinglePokemon(id)
+        getSinglePokemon(id)
         .then(res => {
             setImage(res.sprites.other.dream_world.front_default)
             setName(res.name)
