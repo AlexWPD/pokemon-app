@@ -9,8 +9,8 @@ const getData = async (url) => {
     return await res.json()
 }
 
-export const getAllPokemons = () => {
-    return getData('https://pokeapi.co/api/v2/pokemon/')
+export const getAllPokemons = (offset) => {
+    return getData(`https://pokeapi.co/api/v2/pokemon?limit=6&offset=${offset}`)
 }
 
 export const getSinglePokemon = async (id) => {

@@ -33,6 +33,11 @@ li {
     max-width: 1280px;
 }
 
+.content-wrapper {
+    display: grid;
+    grid-template-columns: 5fr 2fr;
+}
+
 .btn {
   display: flex;
   align-self: flex-start;
