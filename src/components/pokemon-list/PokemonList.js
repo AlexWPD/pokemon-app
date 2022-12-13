@@ -14,21 +14,18 @@ const PokemonList = () => {
   const [errorMessage, setErrorMessage] = useState(false)
 
   useEffect(() => {
+    console.log('useEffect');
       updatePokemonList(offset)
     }, []
   )
   
 
   const updatePokemonList = (offset) => {
-    setLoading(true)
     setErrorMessage(false)
     getAllPokemons(offset)
       .then(res => {
-        console.log(pokemonList)
-        console.log(res.results)
         setPokemonList(pokemonList => [...pokemonList, ...res.results])
         setOffset(offset => offset + 6)
-        console.log(pokemonList)
         setLoading(false)
       })
       .catch(onError)
@@ -40,8 +37,8 @@ const PokemonList = () => {
     setErrorMessage(true)
 }
 
-  const pokemonItem = pokemonList.map(item => {
-    return <li className='pokemon-item' key={item.name}>{item.name}</li>
+  const pokemonItem = pokemonList.map((item, i) => {
+    return <li className='pokemon-item' key={i}>{item.name}</li>
   })
  
   const spinner = loading ? <Spinner/> : null
