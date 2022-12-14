@@ -3,16 +3,25 @@ import RandomPokemon from './components/random-pokemon/RandomPokemon'
 import PokemonList from './components/pokemon-list/PokemonList'
 
 import './app.scss';
+import { useState } from 'react';
 
 
-function App() {
+const App = () => {
+
+  const [pokemonSelected, setPokemonSelected] = useState('')
+
+  const onSelectPokemon = (id) => {
+    setPokemonSelected(id)
+  }
+
+
   return (
     <div className="app">
       <div className='wrapper'>
         <Header/>
         <RandomPokemon/>
         <div className='content-wrapper'>
-          <PokemonList/>
+          <PokemonList onSelectPokemon={onSelectPokemon} />
         </div>
       </div>
     </div>
