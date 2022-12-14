@@ -12,7 +12,9 @@ const App = () => {
   const [pokemonSelected, setPokemonSelected] = useState('')
 
   const onSelectPokemon = (id) => {
-    setPokemonSelected(id)
+    let trueId = id + 1
+    console.log(trueId);
+    setPokemonSelected(trueId)
   }
 
   return (
