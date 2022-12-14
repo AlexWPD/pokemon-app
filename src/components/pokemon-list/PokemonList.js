@@ -6,7 +6,7 @@ import {getAllPokemons} from '../../fetch/fetchPokemon'
 
 import './pokemon-list.scss'
 
-const PokemonList = () => {
+const PokemonList = ({onSelectPokemon}) => {
 
   const [pokemonList, setPokemonList] = useState([])
   const [offset, setOffset] = useState(0)
@@ -38,7 +38,9 @@ const PokemonList = () => {
 }
 
   const pokemonItem = pokemonList.map((item, i) => {
-    return <li className='pokemon-item' key={i}>{item.name}</li>
+    return <li className='pokemon-item' 
+               key={i}
+               onClick={() => onSelectPokemon(i)} >{item.name}</li>
   })
  
   const spinner = loading ? <Spinner/> : null
