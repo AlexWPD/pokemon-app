@@ -13,6 +13,7 @@ const RandomPokemon = () => {
 
     const [loading, setLoading] = useState(true)
     const [errorMessage, setErrorMessage] = useState(false)
+    const [inLoadind, setInLoadind] = useState(false)
 
     useEffect(() => {
         console.log('effect')
@@ -23,15 +24,18 @@ const RandomPokemon = () => {
     const onError = () => {
         setLoading(false)
         setErrorMessage(true)
+        setInLoadind(false)
     }
 
     const updatePokemon = (id) => {
         setLoading(true)
+        setInLoadind(true)
         setErrorMessage(false)
         getSinglePokemon(id)
         .then(pokemonData => {
             setPokemon(pokemonData)
             setLoading(false)
+            setInLoadind(false)
         })
         .catch(onError)
     }
@@ -49,7 +53,9 @@ const RandomPokemon = () => {
                 <h3>Random Pokemon for today!</h3>
                 <p>Don't like?</p>
                 <p>Choose onother one!</p>
-                <button className='btn' onClick={() => updatePokemon(Math.floor(Math.random() * 1100))} >Try it</button>
+                <button className={inLoadind ? 'btn disabled' : 'btn'}
+                        onClick={() => updatePokemon(Math.floor(Math.random() * 1100))} 
+                        disabled={inLoadind} >Try it</button>
             </div>
         </div>
     )
