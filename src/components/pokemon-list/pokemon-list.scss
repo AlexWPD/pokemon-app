@@ -1,14 +1,23 @@
+@import '../../scss-styles/common/index.scss';
+
 .pokemon-list {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
     gap: 20px;
     margin-bottom: 40px;
+
+    @media (min-width: $breakpoint_md) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (min-width: $breakpoint_lg) {
+        grid-template-columns: repeat(4, 1fr);
+    }
 }
 
 .pokemon-item {
     display: grid;
     padding: 10px;
-    height: 150px;
+    height: 80px;
     text-align: center;
     font-weight: 700;
     font-size: 24px;

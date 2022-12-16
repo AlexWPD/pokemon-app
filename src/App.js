@@ -1,10 +1,10 @@
+import { useState } from 'react'
 import Header from './components/header/Header'
 import RandomPokemon from './components/random-pokemon/RandomPokemon'
 import PokemonList from './components/pokemon-list/PokemonList'
 import PokemonDetails from './components/pokemon-details/PokemonDetails'
 
-import './app.scss';
-import { useState } from 'react';
+import './scss-styles/common/index.scss'
 
 
 const App = () => {

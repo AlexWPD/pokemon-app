@@ -1,7 +1,7 @@
 import { useState, useEffect  } from 'react'
 import Spinner from '../spinner/Spinner'
 import Error from '../error/Error'
-import noImg from "../../pictures/no-image.webp"
+import noImg from "../../img/no-image.webp"
 
 import {getSinglePokemon} from '../../fetch/fetchPokemon'
 

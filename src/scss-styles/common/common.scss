@@ -35,10 +35,17 @@ li {
 
 .content-wrapper {
     display: grid;
-    grid-template-columns: 5fr 2fr;
     gap: 30px;
     margin-top: 40px;
     margin-bottom: 40px;
+
+    @media (min-width: $breakpoint_xs) {
+      grid-template-columns: 3fr 2fr;
+    }
+
+    @media (min-width: $breakpoint_lg) {
+      grid-template-columns: 5fr 2fr;
+    }
 }
 
 .btn {

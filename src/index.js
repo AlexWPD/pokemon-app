@@ -1,19 +1,6 @@
-import React from 'react';
+import React from 'react'
 import ReactDOM from 'react-dom/client';
-import App from './App';
-
-import './index.scss';
-
-// const fetchPokemon = new FetchPokemon();
-
-// fetchPokemon.getAllPokemons().then(res => {
-//   res.results.forEach(element => {
-//     console.log(element.name);
-//   });
-// });
-
-
-// fetchPokemon.getSinglePokemon(45).then(res => console.log(res.name));
+import App from './App'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
