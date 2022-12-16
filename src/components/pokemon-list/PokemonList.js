@@ -10,11 +10,11 @@ const PokemonList = ({onSelectPokemon}) => {
 
   const [pokemonList, setPokemonList] = useState([])
   const [offset, setOffset] = useState(0)
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(null)
+  const [itemSelected, setItemSelected] = useState(false)
   const [errorMessage, setErrorMessage] = useState(false)
 
   useEffect(() => {
-    console.log('useEffect');
       updatePokemonList(offset)
     }, []
   )
@@ -25,7 +25,7 @@ const PokemonList = ({onSelectPokemon}) => {
     getAllPokemons(offset)
       .then(res => {
         setPokemonList(pokemonList => [...pokemonList, ...res.results])
-        setOffset(offset => offset + 6)
+        setOffset(offset => offset + 4)
         setLoading(false)
       })
       .catch(onError)
@@ -40,7 +40,11 @@ const PokemonList = ({onSelectPokemon}) => {
   const pokemonItem = pokemonList.map((item, i) => {
     return <li className='pokemon-item' 
                key={i}
-               onClick={() => onSelectPokemon(i)} >{item.name}</li>
+               className={itemSelected === i ? 'pokemon-item selected' : 'pokemon-item'}
+               onClick={() => {
+                onSelectPokemon(i)
+                setItemSelected(i)
+              }} >{item.name}</li>
   })
  
   const spinner = loading ? <Spinner/> : null

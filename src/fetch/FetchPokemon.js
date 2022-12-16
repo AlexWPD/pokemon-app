@@ -10,7 +10,7 @@ const getData = async (url) => {
 }
 
 export const getAllPokemons = (offset) => {
-    return getData(`https://pokeapi.co/api/v2/pokemon?limit=6&offset=${offset}`)
+    return getData(`https://pokeapi.co/api/v2/pokemon?limit=4&offset=${offset}`)
 }
 
 export const getSinglePokemon = async (id) => {

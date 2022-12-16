@@ -13,7 +13,6 @@ const App = () => {
 
   const onSelectPokemon = (id) => {
     let trueId = id + 1
-    console.log(trueId);
     setPokemonSelected(trueId)
   }
 
