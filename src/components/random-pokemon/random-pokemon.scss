@@ -43,6 +43,10 @@
     &-summary {
         display: flex;
         flex-direction: column;
+        p {
+            height: 105px;
+            overflow-y: hidden;
+        }
     }
 
     &-title {
