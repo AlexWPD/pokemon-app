@@ -7,14 +7,10 @@ import './pokemon-details.scss'
 
 const PokemonDetails = ({pokemonSelected}) => {
 
-    const [pokemonDetails, setPokemonDetails] = useState({})
+    const [pokemonDetails, setPokemonDetails] = useState(null)
     const [loading, setLoading] = useState(false)
-    const [load, setLoad] = useState(false)
-    const [error, setError] = useState(false)
-
 
     useEffect(() => {
-        setLoad(true)
         getPokemonDetails()
       }, [pokemonSelected]
     )
@@ -27,20 +23,18 @@ const PokemonDetails = ({pokemonSelected}) => {
         setLoading(true)
         getSinglePokemon(id)
             .then(res => {
-                setPokemonDetails(res)
                 setLoading(false)
-                setLoad(false)
-                setError(false)
+                setPokemonDetails(res)
             }).catch()
     }
 
-    const errorMessage = load && null
+    const skeleton = pokemonDetails || loading ? null : <div>skeleton</div>
     const spinner = loading ? <Spinner/> : null
-    const content = !(loading || error || load) ? <View  pokemonDetails={pokemonDetails} /> : null
+    const content = !(loading || !pokemonDetails) ? <View  pokemonDetails={pokemonDetails} /> : null
     
     return (
         <>
-            {errorMessage}
+            {skeleton}
             {spinner}
             {content}
         </>
